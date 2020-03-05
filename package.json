@@ -1,0 +1,27 @@
+{
+  "name": "ls-i18n",
+  "version": "1.0.1",
+  "publishConfig": {
+    "registry": "https://registry.npmjs.org"
+  },
+  "description": "Language manager for vainilla JS",
+  "files": [
+    "dist/",
+    "loader/"
+  ],
+  "baseUrl": "./src",
+  "paths": {
+    "@/*": [
+      "./*"
+    ]
+  },
+  "scripts": {
+    "build": "tsc",
+    "login": "npm login --registry=https://registry.npmjs.org",
+    "publish-npm": "npm run build && npm version patch && npm publish --access public"
+  },
+  "devDependencies": {
+    "typescript": "^3.8.3"
+  },
+  "license": "MIT"
+}
