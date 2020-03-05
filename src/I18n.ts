@@ -1,7 +1,8 @@
 import LanguageManager from "./LanguageManager";
+import { I18nDictionary } from './Types';
 
 export interface OnLanguageChangeFunction {
-    (translations: any): void;
+    (translations: I18nDictionary): void;
 }
 
 export default class I18n {
@@ -30,7 +31,7 @@ export default class I18n {
     }
 
     private async fetchTranslations() {
-        let json: any = {};
+        let json: I18nDictionary = {};
         try {
             const documentLanguageResponse = await fetch(`/i18n/${this.fileName}.i18n.${LanguageManager.getDocumentLanguage()}.json`);
             json = await documentLanguageResponse.json();
