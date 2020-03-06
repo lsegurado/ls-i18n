@@ -16,18 +16,12 @@ export default class I18n {
         this.onLanguageChange = onLanguageChange;
         this.fetchTranslations();
 
-        const self = this;
-        new MutationObserver(function (mutations) {
-            mutations.forEach(function (mutation) {
-                if (mutation.type == "attributes") {
-                    if (mutation.attributeName === 'lang') {
-                        self.fetchTranslations();
-                    }
-                }
-            });
+        new MutationObserver(() => {
+            this.fetchTranslations();
         }).observe(document.documentElement, {
-            attributes: true //configure it to listen to attribute changes
-        })
+            attributes: true, //configure it to listen to attribute changes
+            attributeFilter: ['lang']
+        });
     }
 
     private async fetchTranslations() {
