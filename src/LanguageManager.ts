@@ -1,27 +1,16 @@
+import I18nUtils from "./I18nUtils";
+
 export default class LanguageManager {
     constructor() {
         const localStorageResult = localStorage.getItem('lang');
         const lang = localStorageResult === null ? 'en' : localStorageResult;
-        LanguageManager.setLanguage(lang);
+        I18nUtils.setLanguage(lang);
 
-        new MutationObserver(function (mutations) {
-            mutations.forEach(function (mutation) {
-                if (mutation.type == "attributes") {
-                    if (mutation.attributeName === 'lang') {
-                        localStorage.setItem('lang', LanguageManager.getDocumentLanguage());
-                    }
-                }
-            });
+        new MutationObserver(() => {
+            localStorage.setItem('lang', I18nUtils.getDocumentLanguage());
         }).observe(document.documentElement, {
-            attributes: true //configure it to listen to attribute changes
-        })
-    }
-
-    public static setLanguage(lang: string) {
-        document.documentElement.setAttribute('lang', lang);
-    }
-
-    public static getDocumentLanguage(): string {
-        return document.documentElement.getAttribute('lang');
+            attributes: true, //configure it to listen to attribute changes
+            attributeFilter: ['lang']
+        });
     }
 }

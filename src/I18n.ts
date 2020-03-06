@@ -1,5 +1,5 @@
-import LanguageManager from "./LanguageManager";
 import { I18nDictionary } from './Types';
+import I18nUtils from "./I18nUtils";
 
 export interface OnLanguageChangeFunction {
     (translations: I18nDictionary): void;
@@ -27,7 +27,7 @@ export default class I18n {
     private async fetchTranslations() {
         let json: I18nDictionary = {};
         try {
-            const documentLanguageResponse = await fetch(`/i18n/${this.fileName}.i18n.${LanguageManager.getDocumentLanguage()}.json`);
+            const documentLanguageResponse = await fetch(`/i18n/${this.fileName}.i18n.${I18nUtils.getDocumentLanguage()}.json`);
             json = await documentLanguageResponse.json();
         } catch (ex) {
             console.error('File not found, using default language');
