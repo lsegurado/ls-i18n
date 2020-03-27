@@ -2,7 +2,7 @@
   "name": "ls-i18n",
   "version": "1.0.3",
   "publishConfig": {
-    "registry": "https://registry.npmjs.org"
+    "registry": "https://npm.pkg.github.com/lsegurado"
   },
   "description": "Language manager for vainilla JS",
   "files": [
@@ -17,7 +17,7 @@
   },
   "scripts": {
     "build": "tsc",
-    "login": "npm login --registry=https://registry.npmjs.org",
+    "login": "npm login --registry=https://npm.pkg.github.com/ --scope=@lsegurado",
     "publish-npm": "npm run build && npm version patch && npm publish --access public"
   },
   "devDependencies": {
