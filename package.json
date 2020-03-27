@@ -1,8 +1,8 @@
 {
   "name": "ls-i18n",
-  "version": "1.0.5",
+  "version": "1.0.4",
   "publishConfig": {
-    "registry": "https://npm.pkg.github.com"
+    "registry": "https://npm.pkg.github.com/lsegurado"
   },
   "description": "Language manager for vainilla JS",
   "files": [
