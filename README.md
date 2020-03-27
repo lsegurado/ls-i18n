@@ -1,3 +1,4 @@
+
 # LS-i18n
 A simple language manager for vainilla JS.
 
@@ -26,16 +27,20 @@ myTranslation.i18n.en.json
 	"HELLO": Hello world
 }
 
+
 Example.tsx
 import I18n from  '@lsegurado/ls-i18n/dist/I18n';
 import { I18nDictionary } from  '@lsegurado/ls-i18n/dist/Types';
+
 ...
+
 @State() t: I18nDictionary = {}; //This will contain the translations strings
 @State() i18n: I18n =  new I18n('myTranslation', (newTranslation: I18nDictionary) => { this.t = newTranslation }); 
 //This callback will allow to update your translations when the lang tag changes.
 //You can also add a parameter that will set the fallback language if the language you are looking doesn´t exists.
+
 ...
-...
+
 //This will display Hello world
 {this.t.HELLO}
 Or
@@ -47,15 +52,19 @@ Or
 ```
 Example in StencilJS
 import LanguageManager from  '@lsegurado/ls-i18n/dist/LanguageManager';
+
 ...
+
 @State() languageManager: LanguageManager =  new LanguageManager((newLanguage: string) =>  this.language = newLanguage);
-//It works in similar way that I18n class
+//It works in a similar way that I18n class
 @State() language: string;
 ```
 - Obtain and set the document language
 ```
 import I18nUtils from  '@lsegurado/ls-i18n/dist/I18nUtils';
+
 ...
+
 I18nUtils.setLanguage('en') //Change the html lang tag to lang="en"
 I18nUtils.getDocumentLanguage() //gets "en"
 ```
