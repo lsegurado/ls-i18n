@@ -1,5 +1,5 @@
-# LS-i18n!
-Hi! This is a language manager for vainilla JS.
+# LS-i18n
+A simple language manager for vainilla JS.
 
 
 ## How to install it
